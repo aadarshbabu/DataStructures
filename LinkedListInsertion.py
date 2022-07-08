@@ -28,9 +28,10 @@ class LinkedList:
         last_node = self.head
         if self.head is None:
             self.head = temp
-        while last_node.next :
-            last_node = last_node.next
-        last_node.next = temp
+        if last_node is not None: #so that append function works even if, only l1=LinkedList() is created and other nodes are not traversed
+            while last_node.next :
+                last_node = last_node.next
+            last_node.next = temp
 
 class Node:
     def __init__(self, data):
